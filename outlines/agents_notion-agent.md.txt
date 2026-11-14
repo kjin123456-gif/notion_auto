@@ -1,0 +1,22 @@
+[.claude/agents/notion-agent.md 개요]
+위치: /.claude/agents/notion-agent.md
+역할: 노션 관련 작업 전담 서브에이전트
+
+1. 프론트매터
+   - name, description(언제 호출되는지), 사용 가능 도구(노션 MCP 도구 한정)
+2. 담당 업무
+   - 트리거 DB 조회 및 캐시(workspace/cache/triggers.json) 갱신
+   - 트리거 대상 DB에 일정 항목 등록
+   - DB 조회·필터링(날짜, 상태, 담당자) 및 분석
+3. 입력 형식
+   - 메인 세션이 넘겨주는 값: 경로 종류, 키워드, 파싱된 내용
+4. 처리 절차
+   - 등록: 대상 DB 확인 → 속성 매핑 → 기본값 적용 → 등록 → 결과 반환
+   - 조회: 조건 해석 → 쿼리 → 결과 정리
+5. 출력 형식
+   - 등록 결과: templates/register-result.md
+   - 조회 결과: templates/report.md
+6. 제한 사항
+   - 항목 삭제 금지, 트리거 DB 자체 수정 금지
+   - GWS 작업 직접 수행 금지
+7. 오류 처리 (DB 접근 불가, 속성 불일치)

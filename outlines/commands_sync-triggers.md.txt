@@ -1,0 +1,13 @@
+[.claude/commands/sync-triggers.md 개요]
+위치: /.claude/commands/sync-triggers.md
+역할: /sync-triggers 슬래시 명령 정의
+
+1. 명령 설명 (프론트매터 description)
+2. 사용 시점
+   - 노션 트리거 DB에 키워드를 추가·수정·비활성화한 직후
+3. 동작
+   - notion-agent로 트리거 DB 전체 조회
+   - "활성" 항목만 workspace/cache/triggers.json에 저장
+4. 결과 보고
+   - 추가/변경/삭제된 키워드 목록
+   - 중복 키워드, 대상 DB 접근 불가 항목 경고

@@ -1,0 +1,19 @@
+# Secrets
+.env
+.env.*
+*.key
+credentials*.json
+token*.json
+
+# Local Claude Code settings
+.claude/settings.local.json
+
+# Runtime logs
+workspace/logs/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
