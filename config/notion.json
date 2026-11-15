@@ -1,0 +1,62 @@
+{
+  "parent_page": {
+    "title": "개인 일정 관리",
+    "id": "419825b4f91f804c85a2cabbb3f40935",
+    "url": "https://app.notion.com/p/419825b4f91f804c85a2cabbb3f40935"
+  },
+  "databases": {
+    "personal": {
+      "name": "Personal Tasks",
+      "rule": ".claude/rules/nt-personal.md",
+      "keywords": ["개인", "personal"],
+      "database_id": "419825b4f91f815dad3ee8e8aaf8d49a",
+      "data_source_id": "collection://419825b4-f91f-8154-940d-000b244a0eb3",
+      "url": "https://app.notion.com/p/419825b4f91f815dad3ee8e8aaf8d49a",
+      "properties": {
+        "일정이름": "title",
+        "날짜": "date",
+        "사람": "person",
+        "중요도": "select",
+        "위치": "text"
+      },
+      "select_options": {
+        "중요도": ["높음", "중간", "낮음"]
+      }
+    },
+    "work": {
+      "name": "Work",
+      "rule": ".claude/rules/nt-work.md",
+      "keywords": ["업무", "강의", "work"],
+      "database_id": "419825b4f91f81f7897dfc1f634e95e2",
+      "data_source_id": "collection://419825b4-f91f-810b-af47-000b83f3fbe8",
+      "url": "https://app.notion.com/p/419825b4f91f81f7897dfc1f634e95e2",
+      "properties": {
+        "업무이름": "title",
+        "등록날짜": "date",
+        "마감일": "date",
+        "공동작업자": "person",
+        "전송메일": "email",
+        "중요도": "select"
+      },
+      "select_options": {
+        "중요도": ["높음", "중간", "낮음"]
+      },
+      "auto_fill": {
+        "등록날짜": "today"
+      }
+    },
+    "study": {
+      "name": "Study",
+      "rule": ".claude/rules/nt-study.md",
+      "keywords": ["학습", "공부", "배움", "study"],
+      "database_id": "419825b4f91f81328d0ae2cd6c56a168",
+      "data_source_id": "collection://419825b4-f91f-8165-9ebf-000be6038f7b",
+      "url": "https://app.notion.com/p/419825b4f91f81328d0ae2cd6c56a168",
+      "properties": {
+        "학습 주제": "title",
+        "마감일": "date",
+        "요약": "text"
+      }
+    }
+  }
+}

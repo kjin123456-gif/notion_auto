@@ -23,14 +23,28 @@
 3. **판단 불가 시**
    - 추측하지 않고 사용자에게 재질문한다.
 
-## 4. 경로별 처리 흐름 (요약)
+## 4. 메모 분류 규칙
+
+사용자가 메모를 입력하면 아래 표에 따라 접두어로 분류하고 Notion에 저장한다.
+
+| 메모 접두어 | 먼저 읽을 규칙 | 저장할 DB |
+|---|---|---|
+| `개인:` 또는 `personal:` | `.claude/rules/nt-personal.md` | Personal Tasks DB |
+| `업무:`, `강의:` 또는 `work:` | `.claude/rules/nt-work.md` | Work DB |
+| `배움:`, `공부:`, `학습:` 또는 `study:` | `.claude/rules/nt-study.md` | Study DB |
+
+- 접두어로 분류한 뒤, 해당 규칙 파일을 먼저 읽고 그 규칙에 맞춰 DB에 저장한다.
+- 저장이 끝나면 `저장됨:[DB명]` 한 줄만 출력한다. (예: `저장됨:Work DB`)
+- 메모 등록 시에는 이 한 줄 출력이 결과 보고 양식(`templates/register-result.md`)보다 우선한다.
+
+## 5. 경로별 처리 흐름 (요약)
 
 상세: `docs/workflow.md`
 
-- **등록 경로:** 입력 수신 → 구분자 판별 → 트리거 키워드 대조 → 내용 파싱 → 대상 DB 등록 → 결과 보고(`templates/register-result.md`)
+- **등록 경로:** 입력 수신 → 구분자 판별 → 트리거 키워드 대조 → 내용 파싱 → 대상 DB 등록 → 결과 보고(`templates/register-result.md`, 메모는 4절의 한 줄 출력)
 - **조회·실행 경로:** 입력 수신 → 의도 분석(`docs/intent-map.md`) → 노션 조회·분석 → 보고서 제시(`templates/report.md`) → 실행 계획 작성(`workspace/plans/`, `templates/action-plan.md`) → 사용자 승인 → `gws-executor` 실행 → 결과 보고·기록(`workspace/logs/`)
 
-## 5. 역할 분담
+## 6. 역할 분담
 
 | 역할 | 담당 |
 |------|------|
@@ -38,7 +52,7 @@
 | `notion-agent` | 노션 DB 표 생성, 일정 분류·등록, 필터링(날짜·상태·담당자), 분석 보고 |
 | `gws-executor` | **승인된 계획만** GWS CLI로 실행 |
 
-## 6. 승인 원칙
+## 7. 승인 원칙
 
 상세: `docs/approval-policy.md`
 
@@ -46,7 +60,7 @@
 - 메일 기본값은 **초안**이며, 발송은 별도 명시 승인이 필요하다.
 - 명시적 승인 없이 공유 설정을 변경하지 않는다.
 
-## 7. 문서 언어 및 번역 규칙
+## 8. 문서 언어 및 번역 규칙
 
 - **모든 `.md` 파일은 영어로 작성한다.**
 - 모든 `.md` 파일의 한글 번역본은 `translate/` 폴더에 따로 저장한다.
@@ -57,7 +71,7 @@
   - 예: `.claude/` → `translate/.claude/` (예: `.claude/agents/notion-agent.md` → `translate/.claude/agents/_notion-agent.md`)
 - 영어 `.md` 파일을 생성·수정하면 같은 작업 안에서 한글 번역본도 생성·갱신한다.
 
-## 8. 참조 문서 목록
+## 9. 참조 문서 목록
 
 - `docs/`
   - `workflow.md` — 전체 처리 흐름
@@ -75,15 +89,15 @@
 - `workspace/`
   - `plans/`, `logs/`, `outputs/`
 
-## 9. 금지 사항
+## 10. 금지 사항
 
 - 승인 없는 메일 발송
 - 노션 항목 삭제
 - 비밀값 출력(`.env`, 토큰, API 키)
 - todo list 승인 전 작업 시작
 
-## 10. 응답 언어 및 보고 형식
+## 11. 응답 언어 및 보고 형식
 
 - 사용자에게는 **한국어**로 응답한다.
-- 보고는 `templates/` 양식을 따른다.
+- 보고는 `templates/` 양식을 따른다. 단, 4절의 메모 저장 출력은 예외로 한다.
 - 문서 파일(`.md`)은 영어로 유지하며, 한글본은 `translate/`에만 둔다.

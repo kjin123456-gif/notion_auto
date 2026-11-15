@@ -21,9 +21,9 @@ Using `docs/intent-map.md`, decide:
 | Item | Example |
 |------|---------|
 | Period | today, this week, a date range |
-| Conditions | status (`In progress`, `Done`, ...), assignee, other properties |
+| Conditions | importance (`중요도`: `높음`, `중간`, `낮음`), person (`사람` / `공동작업자`), other properties |
 | Target databases | one or more databases from the intent map |
-| Analysis type | deadline check, status summary, per-assignee summary, etc. |
+| Analysis type | deadline check, importance summary, per-person summary, etc. |
 
 - If the intent is unclear or matches several meanings, **do not guess**. Ask the user again.
 
@@ -34,11 +34,11 @@ Call the `notion-agent` subagent with:
 ```json
 {
   "path": "query",
-  "conditions": { "period": "...", "status": "...", "assignee": "..." }
+  "conditions": { "period": "...", "importance": "...", "person": "..." }
 }
 ```
 
-`notion-agent` sorts by nearest deadline and returns counts by status, overdue items, items due soon, and items per assignee.
+`notion-agent` sorts by nearest deadline and returns counts by importance, overdue items, items due soon, and items per person.
 
 ### 3. Report
 

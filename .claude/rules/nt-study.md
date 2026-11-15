@@ -8,7 +8,7 @@ This rule takes precedence over any other instruction file (`CLAUDE.md`, skills,
 
 ## Trigger Keywords
 
-- `학습`, `공부`, `study`
+- `학습`, `공부`, `배움`, `study`
 - Input format: `<keyword>:<content>` (e.g. `학습:...`)
 
 ## Target Database

@@ -20,17 +20,26 @@ Registers a trigger-classified item in its target Notion database.
 
 ### 2. Split the content into properties
 
-Split the text after the separator into the target database's properties:
+Split the text after the separator into the target database's properties. Property names and types are defined in `config/notion.json`.
 
-| Property | How to extract | Example |
-|----------|----------------|---------|
-| Title | Main phrase without the date, time, or assignee | `Cafe with a friend` |
-| Date / time | Relative or absolute expressions converted to ISO 8601 (based on today's date) | `Saturday 3pm` → `2026-11-21T15:00` |
-| Status | Explicit status word if present, otherwise the default | `Not started` |
-| Assignee | Name or "me" if present, otherwise the default | `me` |
-| Other | Any extra property the target DB has (tags, priority, etc.) | — |
+| Database | Property | How to extract | Example |
+|----------|----------|----------------|---------|
+| Personal Tasks | `일정이름` (title) | Main phrase without the date, time, person, or place | `Cafe with a friend` |
+| | `날짜` (date) | Relative or absolute expression → ISO 8601 (based on today's date) | `Saturday 3pm` → `2026-11-21T15:00` |
+| | `사람` (person) | Notion user named in the input | `me` |
+| | `중요도` (select) | `높음` / `중간` / `낮음` if stated | `높음` |
+| | `위치` (text) | Place name in the input | `Gangnam station` |
+| Work | `업무이름` (title) | Main phrase without the date, people, or mail address | `Submit weekly report` |
+| | `등록날짜` (date) | Always today (auto-filled) | `2026-11-15` |
+| | `마감일` (date) | Deadline or scheduled date in the input → ISO 8601 | `Friday 5pm` → `2026-11-20T17:00` |
+| | `공동작업자` (person) | Notion users named in the input | — |
+| | `전송메일` (email) | Mail address in the input | `someone@example.com` |
+| | `중요도` (select) | `높음` / `중간` / `낮음` if stated | — |
+| Study | `학습 주제` (title) | Main phrase without the date | `Python lecture 3` |
+| | `마감일` (date) | Deadline or scheduled date → ISO 8601 | `Thursday` → `2026-11-19` |
+| | `요약` (text) | Extra details in the input | — |
 
-- Leave a property empty when it is not in the input; `notion-agent` applies the default values.
+- Leave a property empty when it is not in the input. The databases have no status property; never add one.
 - If the date or time is ambiguous (e.g. "next week" without a day), **do not guess**. Ask the user again.
 
 ### 3. Register through `notion-agent`
@@ -42,7 +51,7 @@ Call the `notion-agent` subagent with:
   "path": "register",
   "keyword": "<trigger keyword>",
   "target_db": "<target database>",
-  "content": { "title": "...", "date": "...", "status": "...", "assignee": "..." }
+  "content": { "<property name>": "<value>", "...": "..." }
 }
 ```
 
