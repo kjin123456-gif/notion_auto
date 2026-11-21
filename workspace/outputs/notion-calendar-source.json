@@ -1,0 +1,12 @@
+[
+  {"db":"personal","page_id":"419825b4-f91f-8159-9080-fad89d43d3c0","title":"남양주 방문","date_start":"2026-11-21","date_end":null,"has_time":false,"extra":{"위치":"남양주"}},
+  {"db":"work","page_id":"419825b4-f91f-8128-88bb-e46530da3039","title":"커리큘럼 다음 점검회의 (온라인) [전원]","date_start":"2026-11-24T16:00:00+09:00","date_end":null,"has_time":true,"extra":{"등록날짜":"2026-11-15"}},
+  {"db":"work","page_id":"419825b4-f91f-815d-8627-ccdcb38aad50","title":"실습과제·학습자 안내자료 (DOCX→PDF) [박지현/이서연]","date_start":"2026-11-23T15:00:00+09:00","date_end":null,"has_time":true,"extra":{"등록날짜":"2026-11-15"}},
+  {"db":"work","page_id":"419825b4-f91f-81bd-9fd6-d654af4d0146","title":"최종본 확정 및 공유 (PPTX, PDF, XLSX) [김민준/전원]","date_start":"2026-11-25T18:00:00+09:00","date_end":null,"has_time":true,"extra":{"등록날짜":"2026-11-15"}},
+  {"db":"work","page_id":"419825b4-f91f-81f5-84b9-e457ebb208de","title":"강의 슬라이드 초안 제작 (PPTX) [이서연/김민준]","date_start":"2026-11-20T18:00:00+09:00","date_end":null,"has_time":true,"extra":{"등록날짜":"2026-11-15"}},
+  {"db":"work","page_id":"419825b4-f91f-81fd-8297-dc409b1a2ba2","title":"통합 검수 및 수정의견 취합 (XLSX) [최도윤/전원]","date_start":"2026-11-24T17:00:00+09:00","date_end":null,"has_time":true,"extra":{"등록날짜":"2026-11-15"}},
+  {"db":"work","page_id":"419825b4-f91f-81fe-9412-cf3724c04d0a","title":"주차별 학습목표·차시 구성안 (XLSX) [김민준/박지현]","date_start":"2026-11-18T18:00:00+09:00","date_end":null,"has_time":true,"extra":{"등록날짜":"2026-11-15"}},
+  {"db":"work","page_id":"419825b4-f91f-8128-aa54-ce64169ee0d5","title":"수정된 커리큘럼 표 전달","date_start":null,"date_end":null,"has_time":false,"extra":{"등록날짜":"2026-11-15"}},
+  {"db":"work","page_id":"419825b4-f91f-81dc-b573-cb349dcea81f","title":"정규수업 개강","date_start":"2026-11-17","date_end":null,"has_time":false,"extra":{"등록날짜":"2026-11-15"}},
+  {"db":"study","page_id":"419825b4-f91f-8165-9300-c1e79b077d8a","title":"에이전트 업데이트 사항 업데이트하기","date_start":"2026-11-18","date_end":null,"has_time":false,"extra":{}}
+]
